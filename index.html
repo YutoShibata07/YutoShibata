@@ -1,383 +1,568 @@
-<html><head>
-  <script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-QPJZ0J6NDH&amp;cx=c&amp;_slc=1"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script>
-      (function (i, s, o, g, r, a, m) {
-          i['GoogleAnalyticsObject'] = r;
-          i[r] = i[r] || function () {
-              (i[r].q = i[r].q || []).push(arguments)
-          }, i[r].l = 1 * new Date();
-          a = s.createElement(o),
-              m = s.getElementsByTagName(o)[0];
-          a.async = 1;
-          a.src = g;
-          m.parentNode.insertBefore(a, m)
-      })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-      ga('create', 'UA-108114467-1', 'auto');
-      ga('send', 'pageview');
-  </script>
-  <meta name="viewport" content="“width=800”">
-  <meta name="generator" content="HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org">
-  <link href="https://fonts.googleapis.com/css?family=Titillium Web" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="utf-8">
-  <style type="text/css">
-      /* Design Credits: Jon Barron and Abhishek Kar and Saurabh Gupta*/
-      a {
-          color: #1772d0;
-          text-decoration: none;
-      }
-
-      a:focus, a:hover {
-          color: #f09228;
-          text-decoration: none;
-      }
-
-      body, td, th {
-          font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
-          font-size: 16px;
-          font-weight: 400
-      }
-
-      heading {
-          font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
-          font-size: 19px;
-          font-weight: 1000
-      }
-
-      strong {
-          font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
-          font-size: 16px;
-          font-weight: 800
-      }
-
-      strongred {
-          font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
-          color: 'red';
-          font-size: 16px
-      }
-
-      sectionheading {
-          font-family: 'Titillium Web', Verdana, Helvetica, sans-serif;
-          font-size: 22px;
-          font-weight: 600
-      }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yuto Shibata</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-  <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-  <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
+
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-108114467-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QPJZ0J6NDH"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --color-bg: #fafafa;
+      --color-surface: #ffffff;
+      --color-text: #1a1a2e;
+      --color-text-secondary: #555;
+      --color-accent: #2563eb;
+      --color-accent-hover: #1d4ed8;
+      --color-highlight: #f59e0b;
+      --color-border: #e5e7eb;
+      --color-tag-bg: #eff6ff;
+      --color-tag-text: #1e40af;
+      --color-tag-top-bg: #fef3c7;
+      --color-tag-top-text: #92400e;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+      --radius: 12px;
+      --max-width: 1100px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: var(--color-accent-hover);
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+    }
+
+    /* ---- Hero Section ---- */
+    .hero {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+
+    .hero-photo {
+      flex-shrink: 0;
+    }
+
+    .hero-photo img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--color-surface);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-text h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 2px;
+    }
+
+    .hero-text h1 span {
+      font-weight: 400;
+      font-size: 20px;
+      color: var(--color-text-secondary);
+      margin-left: 8px;
+    }
+
+    .hero-text .tagline {
+      color: var(--color-text-secondary);
+      font-size: 15px;
+      margin-top: 4px;
+      margin-bottom: 14px;
+    }
+
+    .hero-text p {
+      margin-bottom: 10px;
+      color: var(--color-text);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      transition: all 0.2s;
+    }
+    .links a:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-1px);
+    }
+
+    .links a svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    /* ---- Section ---- */
+    .section {
+      margin-bottom: 44px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      padding-bottom: 10px;
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--color-text);
+      display: inline-block;
+    }
+
+    /* ---- Publication Card ---- */
+    .pub-card {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      background: var(--color-surface);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 16px;
+      border: 1px solid var(--color-border);
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .pub-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .pub-thumb {
+      flex-shrink: 0;
+      width: 340px;
+      height: 200px;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f3f4f6;
+    }
+
+    .pub-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .pub-thumb video {
+      height: 100%;
+      width: auto;
+      display: block;
+    }
+
+    /* Featured publication (CVPR main) */
+    .pub-card.featured {
+      border: 2px solid var(--color-highlight);
+      background: linear-gradient(135deg, #fffbeb 0%, #ffffff 40%);
+      box-shadow: var(--shadow-sm);
+    }
+    .pub-card.featured:hover {
+      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.15);
+    }
+
+    .pub-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .pub-info .pub-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 6px;
+      color: var(--color-text);
+    }
+
+    .pub-info .pub-authors {
+      font-size: 13.5px;
+      color: var(--color-text-secondary);
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+
+    .pub-info .pub-authors .me {
+      font-weight: 600;
+      color: var(--color-text);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .pub-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: var(--color-tag-bg);
+      color: var(--color-tag-text);
+      letter-spacing: 0.2px;
+    }
+
+    .tag.top {
+      background: var(--color-tag-top-bg);
+      color: var(--color-tag-top-text);
+    }
+
+    .pub-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .pub-links a {
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+      transition: all 0.2s;
+    }
+    .pub-links a:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      background: var(--color-tag-bg);
+    }
+
+    /* ---- Talks ---- */
+    .talk-item {
+      display: flex;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .talk-item:last-child {
+      border-bottom: none;
+    }
+    .talk-date {
+      flex-shrink: 0;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      min-width: 80px;
+      padding-top: 1px;
+    }
+    .talk-desc {
+      font-size: 14.5px;
+    }
+
+    /* ---- Footer ---- */
+    footer {
+      text-align: center;
+      color: #999;
+      font-size: 12px;
+      padding-top: 20px;
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* ---- Smooth scroll & animations ---- */
+    html { scroll-behavior: smooth; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero { animation: fadeInUp 0.6s ease-out; }
+    .section { animation: fadeInUp 0.6s ease-out both; }
+    .pub-card { animation: fadeInUp 0.5s ease-out both; }
+    .pub-card:nth-child(2) { animation-delay: 0.05s; }
+    .pub-card:nth-child(3) { animation-delay: 0.1s; }
+    .pub-card:nth-child(4) { animation-delay: 0.15s; }
+    .pub-card:nth-child(5) { animation-delay: 0.2s; }
+    .pub-card:nth-child(6) { animation-delay: 0.25s; }
+    .pub-card:nth-child(7) { animation-delay: 0.3s; }
+    .pub-card:nth-child(8) { animation-delay: 0.35s; }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 700px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .links {
+        justify-content: center;
+      }
+      .pub-card {
+        flex-direction: column;
+      }
+      .pub-thumb {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-<body data-new-gr-c-s-check-loaded="14.1201.0" data-gr-ext-installed="" class="vsc-initialized">
-<table width="1000" border="0" align="center" cellspacing="0" cellpadding="20">
-  <tbody><tr>
-      <td halign="center">
-          <p align="center">
-              <font size="6">Yuto Shibata 柴田優斗</font>
-          </p>
-      </td>
-  </tr>
-  <tr>
-      <td>
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-              <tbody><tr>
-                  <td width="67%" valign="middle">
-                      <p>I am a first-year PhD student at <a href="https://aoki-medialab.jp/home-en/">Aoki lab</a> in <a href="https://www.keio.ac.jp/en/">Keio University</a> in Japan. 
-                      </p>
-                      <p>My specialties are computer vision, wireless sensing, and deep learning. Especially, I have a strong interest in building privacy-conscious ML systems, such as non-image-based human
-                        sensing.</p>
-                      <p>
-                        I am primarily advised by <a href="https://scholar.google.com.au/citations?user=fd_IY8AAAAAJ&hl=ja">Prof. Yoshimitsu Aoki</a> and <a href="https://scholar.google.com/citations?user=SQdd110AAAAJ&hl=ja">Dr. Mariko Isogawa</a>.
-                      </p>
-                      <p>
-                        I will be staying at Carnegie Mellon University for one year starting in June 2025, under the supervision of <a href="https://www.cs.cmu.edu/~katef/">Prof. Katerina Fragkiadaki</a>. There, I plan to conduct research on human motion and physics engines.
-                      </p>
-                      <p>I'm currently working part-time job at <a href="https://tenchijin.co.jp/?hl=en">Tenchijin</a> and engaged in geospatial data analysis. Previously, I was doing research internship at <a href="https://www.preferred.jp/en/">Preferred Networks</a> where I conducted research on communication-efficient federated learning in healthcare.</p>
-                      <p>
-                        Research opportunities: I am looking for research internships in Japan or abroad. I am also happy to answer questions about my research. If you are interested, please send me an email.
-                      </p>
-                      <p align="center"><a>
-                      </a><a href="yutoshibata_cv_2024.pdf">CV</a> | <a href="mailto:yuto19990715@gmail.com">E-Mail</a> | <a href="https://scholar.google.co.jp/citations?user=tVXueOYAAAAJ&hl=ja&oi=sra">Google Scholar</a> |
-                          <a href="https://github.com/YutoShibata07/">Github</a> |
-                          <a href="https://x.com/shibatashi_"> Twitter</a> |
-                      </p>
-                  </td>
-                  <td width="100%" valign="top">
-                      <img src="images/YutoShibata.png" width="95%">
-                  </td>
-              </tr>
-          </tbody></table>
+<body>
 
-  
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-              <tbody><tr>
-                  <td width="100%" valign="middle">
-                      <heading>Publications</heading>
-                  </td>
-              </tr>
-            </tbody></table>
+<div class="container">
 
-            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-                <tbody><tr onmouseout="bgm2pose_start()" onmouseover="bgm2pose_stop()">
-                    <td width="50%">
-                        <div class="one">
-                            <div class="two" id="bgm2pose"><div class="vsc-controller"></div>
-                                 <img src='images/bgm2pose_overview.png' alt="sym" width="100%" style="border-style: none">
-                            </div>
-                        </div>
-                        <script type="text/javascript">
-                            function bgm2pose_start() {
-                                document.getElementById('bgm2pose').style.opacity = "0.9";
-                            }
-  
-                            function bgm2pose_stop() {
-                                document.getElementById('bgm2pose').style.opacity = "1";
-                            }
-  
-                            friendly_stop()
-                        </script>
-                    </td>
-                    <td valign="top" width="65%">
-                        <p><a href="">
-                            <img src="images/new.png" alt="[NEW]" width="5%" style="border-style: none">
-                            <heading>BGM2Pose: Active 3D Human Pose Estimation with Non-Stationary Sounds</heading>
-                        </a><br><strong><u>Yuto Shibata</u></strong>, Yusuke Oumi, Go Irie, Akisato Kimura, Yoshimitsu Aoki, Mariko Isogawa<br>
-                        <!-- <em>arXiv<br></em> -->
-                        <a href="https://arxiv.org/abs/2503.00389">arxiv | </a>
-                    </strong></strong></p></td>
-                </tr>
-          </tbody></table>
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="hero-photo">
+      <img src="images/face-zoom.jpg" alt="Yuto Shibata">
+    </div>
+    <div class="hero-text">
+      <h1>Yuto Shibata <span>柴田 優斗</span></h1>
+      <p class="tagline">PhD Student @ Keio University &middot; Visiting @ CMU</p>
+      <p>I am a PhD student at <a href="https://aoki-medialab.jp/home-en/">Aoki Lab</a>, <a href="https://www.keio.ac.jp/en/">Keio University</a>, advised by <a href="https://scholar.google.com.au/citations?user=fd_IY8AAAAAJ&hl=ja">Prof. Yoshimitsu Aoki</a> and <a href="https://scholar.google.com/citations?user=SQdd110AAAAJ&hl=ja">Dr. Mariko Isogawa</a>.</p>
+      <p>I am staying at <a href="https://www.cs.cmu.edu/">Carnegie Mellon University</a> under <a href="https://www.cs.cmu.edu/~katef/">Prof. Katerina Fragkiadaki</a>, conducting research on human motion and physics simulation.</p>
+      <p>My research interests include computer vision, physics-based human modeling, acoustic sensing, and privacy-conscious ML systems.</p>
 
-            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-                <tbody><tr onmouseout="sensys_start()" onmouseover="sensys_stop()">
-                    <td width="50%">
-                        <div class="one">
-                            <div class="two" id="sensys_uwb"><div class="vsc-controller"></div>
-                                 <img src='images/sensys2025_overview.png' alt="sym" width="100%" style="border-style: none">
-                            </div>
-                        </div>
-                        <script type="text/javascript">
-                            function sysys_start() {
-                                document.getElementById('sensys_uwb').style.opacity = "0.9";
-                            }
-  
-                            function sensys_stop() {
-                                document.getElementById('sensys_uwb').style.opacity = "1";
-                            }
-  
-                            friendly_stop()
-                        </script>
-                    </td>
-                    <td valign="top" width="65%">
-                        <p><a href="">
-                            <img src="images/new.png" alt="[NEW]" width="5%" style="border-style: none">
-                            <heading>Occlusion-Resilient UWB Localization Via Ceiling Reflection With Floor Anchor Installation</heading>
-                        </a><br><strong><u>Yuto Shibata</u></strong>, Matthew Ishige, Hiroaki Murakami, Yoshihiro Kawahara<br>
-                        <em>SenSys2025<br></em>
-                        <a href="https://dl.acm.org/doi/abs/10.1145/3715014.3724050">paper | </a>
-                    </strong></strong></p></td>
-                </tr>
-          </tbody></table>
+      <div class="links">
+        <a href="yutoshibata_cv_2024.pdf">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+          CV
+        </a>
+        <a href="mailto:yuto19990715@gmail.com">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+          Email
+        </a>
+        <a href="https://scholar.google.co.jp/citations?user=tVXueOYAAAAJ&hl=ja&oi=sra">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"/></svg>
+          Scholar
+        </a>
+        <a href="https://github.com/YutoShibata07/">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://x.com/shibatashi_">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Twitter
+        </a>
+      </div>
+    </div>
+  </section>
 
-            <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-                <tbody><tr onmouseout="formulaSed_start()" onmouseover="formulaSed_stop()">
-                    <td width="50%">
-                        <div class="one">
-                            <div class="two" id="formulaSed"><div class="vsc-controller"></div>
-                                 <img src='images/icassp2025_sample.png' alt="sym" width="100%" style="border-style: none">
-                            </div>
-                        </div>
-                        <script type="text/javascript">
-                            function formulaSed_start() {
-                                document.getElementById('formulaSed').style.opacity = "0.9";
-                            }
-  
-                            function formulaSed_stop() {
-                                document.getElementById('formulaSed').style.opacity = "1";
-                            }
-  
-                            friendly_stop()
-                        </script>
-                    </td>
-                    <td valign="top" width="65%">
-                        <p><a href="">
-                            <img src="images/new.png" alt="[NEW]" width="5%" style="border-style: none">
-                            <heading>Formula-Supervised Sound Event Detection: Pre-Training Without Real Data</heading>
-                        </a><br><strong><u>Yuto Shibata</u></strong>, Keitaro Tanaka, Yoshiaki Bando, Hirokatsu Kataoka, Yoshimitsu Aoki<br>
-                        <em>ICASSP2025<br></em>
-                        <a href="https://yutoshibata07.github.io/Formula-SED/">project | </a>
-                        <a href="https://ieeexplore.ieee.org/abstract/document/10888414">paper | </a>
-                    </strong></strong></p></td>
-                </tr>
-          </tbody></table>
+  <!-- ===== Publications ===== -->
+  <section class="section">
+    <h2 class="section-title">Publications</h2>
 
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-              <tbody><tr onmouseout="hoiswap_start()" onmouseover="hoiswap_stop()">
-                  <td width="50%">
-                      <div class="one">
-                          <div class="two" id="hoiswap"><div class="vsc-controller"></div>
-                               <img src='images/neurips_overview.png' alt="sym" width="100%" style="border-style: none">
-                          </div>
-                      </div>
-                      <script type="text/javascript">
-                          function hoiswap_start() {
-                              document.getElementById('hoiswap').style.opacity = "0.9";
-                          }
+    <!-- AssistMimic - CVPR 2026 -->
+    <div class="pub-card featured">
+      <div class="pub-thumb">
+        <video autoplay loop muted playsinline>
+          <source src="images/assistmimic-mini-video.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="pub-info">
+        <div class="pub-tags">
+          <span class="tag top">CVPR 2026</span>
+        </div>
+        <div class="pub-title">Learning to Assist: Physics-Grounded Human-Human Control via Multi-Agent Reinforcement Learning</div>
+        <div class="pub-authors">
+          <span class="me">Yuto Shibata</span>, Kashu Yamazaki, Lalit Jayanti, Yoshimitsu Aoki, Mariko Isogawa, Katerina Fragkiadaki
+        </div>
+        <div class="pub-links">
+          <a href="https://yutoshibata07.github.io/AssistMimic/">Project</a>
+          <a href="https://arxiv.org/abs/2603.11346">arXiv</a>
+        </div>
+      </div>
+    </div>
 
-                          function hoiswap_stop() {
-                              document.getElementById('hoiswap').style.opacity = "1";
-                          }
+    <!-- BGM2Pose -->
+    <div class="pub-card">
+      <div class="pub-thumb">
+        <img src="images/bgm2pose_overview.png" alt="BGM2Pose">
+      </div>
+      <div class="pub-info">
+        <div class="pub-tags">
+          <span class="tag">Preprint</span>
+        </div>
+        <div class="pub-title">BGM2Pose: Active 3D Human Pose Estimation with Non-Stationary Sounds</div>
+        <div class="pub-authors">
+          <span class="me">Yuto Shibata</span>, Yusuke Oumi, Go Irie, Akisato Kimura, Yoshimitsu Aoki, Mariko Isogawa
+        </div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2503.00389">arXiv</a>
+        </div>
+      </div>
+    </div>
 
-                          friendly_stop()
-                      </script>
-                  </td>
-                  <td valign="top" width="65%">
-                      <p><a href="">
-                          <img src="images/new.png" alt="[NEW]" width="5%" style="border-style: none">
-                          <heading>Anatomical Three-Dimensional Style Transfer Enabling Efficient Federated
-                            Learning with Extremely Low Communication Costs</heading>
-                      </a><br><strong><u>Yuto Shibata</u></strong>, Yasunori Kudo, Yohei Sugawara<br>
-                      <em>NeurIPS2024, AIM-FM Workshop<br></em>
-                      <a href="https://arxiv.org/abs/2410.20102">arxiv | </a>
-                  </strong></strong></p></td>
-              </tr>
+    <!-- SenSys 2025 -->
+    <div class="pub-card">
+      <div class="pub-thumb">
+        <img src="images/sensys2025_overview.png" alt="UWB Localization">
+      </div>
+      <div class="pub-info">
+        <div class="pub-tags">
+          <span class="tag">SenSys 2025</span>
+        </div>
+        <div class="pub-title">Occlusion-Resilient UWB Localization Via Ceiling Reflection With Floor Anchor Installation</div>
+        <div class="pub-authors">
+          <span class="me">Yuto Shibata</span>, Matthew Ishige, Hiroaki Murakami, Yoshihiro Kawahara
+        </div>
+        <div class="pub-links">
+          <a href="https://dl.acm.org/doi/abs/10.1145/3715014.3724050">Paper</a>
+        </div>
+      </div>
+    </div>
 
-          </tbody></table><table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-              <tbody><tr onmouseout="action2sound_start()" onmouseover="action2sound_stop()">
-                  <td width="50%">
-                      <div class="one">
-                          <div class="two" id="action2sound" style="opacity: 0.9;"><img src="images/oumi_bmvc2024.png" alt="sym" width="100%" style="border-style: none"></div>
-                      </div>
-                      <script type="text/javascript">
-                          function action2sound_start() {
-                              document.getElementById('action2sound').style.opacity = "0.9";
-                          }
+    <!-- ICASSP 2025 -->
+    <div class="pub-card">
+      <div class="pub-thumb">
+        <img src="images/icassp2025_sample.png" alt="Formula-SED">
+      </div>
+      <div class="pub-info">
+        <div class="pub-tags">
+          <span class="tag">ICASSP 2025</span>
+        </div>
+        <div class="pub-title">Formula-Supervised Sound Event Detection: Pre-Training Without Real Data</div>
+        <div class="pub-authors">
+          <span class="me">Yuto Shibata</span>, Keitaro Tanaka, Yoshiaki Bando, Hirokatsu Kataoka, Yoshimitsu Aoki
+        </div>
+        <div class="pub-links">
+          <a href="https://yutoshibata07.github.io/Formula-SED/">Project</a>
+          <a href="https://ieeexplore.ieee.org/abstract/document/10888414">Paper</a>
+        </div>
+      </div>
+    </div>
 
-                          function action2sound_stop() {
-                              document.getElementById('action2sound').style.opacity = "1";
-                          }
+    <!-- NeurIPS 2024 -->
+    <div class="pub-card">
+      <div class="pub-thumb">
+        <img src="images/neurips_overview.png" alt="Federated Learning">
+      </div>
+      <div class="pub-info">
+        <div class="pub-tags">
+          <span class="tag">NeurIPS 2024 Workshop</span>
+        </div>
+        <div class="pub-title">Anatomical Three-Dimensional Style Transfer Enabling Efficient Federated Learning with Extremely Low Communication Costs</div>
+        <div class="pub-authors">
+          <span class="me">Yuto Shibata</span>, Yasunori Kudo, Yohei Sugawara
+        </div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2410.20102">arXiv</a>
+        </div>
+      </div>
+    </div>
 
-                          friendly_stop()
-                      </script>
-                  </td>
-                  <td valign="top" width="65%">
-                      <p><a href="">
-                          <img src="images/new.png" alt="[NEW]" width="5%" style="border-style: none">
-                          <heading>Acoustic-based 3D Human Pose Estimation Robust to Human Position</heading>
-                      </a><br>Yusuke Oumi, <strong><u>Yuto Shibata</u></strong>, Go Irie, Akisato Kimura, Yoshimitsu Aoki, Mariko Isogawa<br>
-                          <em>BMVC 2024<br></em>
-                          <a href="https://arxiv.org/abs/2411.07165">arxiv | </a>
-                  </p></td>
-              </tr>
-            </tbody></table><table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-              <tbody><tr onmouseout="sound2pose_start()" onmouseover="sound2pose_stop()">
-                  <td width="50%">
-                      <div class="one">
-                          <div class="two" id="sound2sound" style="opacity: 0.9;"><img src="images/sound2pose_teaser.png" alt="sym" width="100%" style="border-style: none"></div>
-                      </div>
-                      <script type="text/javascript">
-                          function sound2pose_start() {
-                              document.getElementById('sound2pose').style.opacity = "0.9";
-                          }
+    <!-- BMVC 2024 -->
+    <div class="pub-card">
+      <div class="pub-thumb">
+        <img src="images/oumi_bmvc2024.png" alt="Acoustic Pose">
+      </div>
+      <div class="pub-info">
+        <div class="pub-tags">
+          <span class="tag">BMVC 2024</span>
+        </div>
+        <div class="pub-title">Acoustic-based 3D Human Pose Estimation Robust to Human Position</div>
+        <div class="pub-authors">
+          Yusuke Oumi, <span class="me">Yuto Shibata</span>, Go Irie, Akisato Kimura, Yoshimitsu Aoki, Mariko Isogawa
+        </div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2411.07165">arXiv</a>
+        </div>
+      </div>
+    </div>
 
-                          function action2sound_stop() {
-                              document.getElementById('sound2pose').style.opacity = "1";
-                          }
+    <!-- CVPR 2023 -->
+    <div class="pub-card featured">
+      <div class="pub-thumb">
+        <img src="images/sound2pose_teaser.png" alt="Sound2Pose">
+      </div>
+      <div class="pub-info">
+        <div class="pub-tags">
+          <span class="tag top">CVPR 2023</span>
+        </div>
+        <div class="pub-title">Listening Human Behavior: 3D Human Pose Estimation With Acoustic Signals</div>
+        <div class="pub-authors">
+          <span class="me">Yuto Shibata</span>, Yutaka Kawashima, Mariko Isogawa, Go Irie, Akisato Kimura, Yoshimitsu Aoki
+        </div>
+        <div class="pub-links">
+          <a href="https://isogawa.ics.keio.ac.jp/research_project/acoustic_3dpose.html">Project</a>
+          <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Shibata_Listening_Human_Behavior_3D_Human_Pose_Estimation_With_Acoustic_Signals_CVPR_2023_paper.pdf">Paper</a>
+          <a href="https://github.com/YutoShibata07/AcousticPose_Public">Code</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                          friendly_stop()
-                      </script>
-                  </td>
-                  <td valign="top" width="65%">
-                      <p><a href="">
-                          <heading>Listening Human Behavior: 3D Human Pose Estimation With Acoustic Signals</heading>
-                      </a><br><strong><u>Yuto Shibata</u></strong>, Yutaka Kawashima, Mariko Isogawa, Go Irie, Akisato Kimura, Yoshimitsu Aoki<br>
-                          <em>CVPR2023<br></em>
-                          <a href="https://isogawa.ics.keio.ac.jp/research_project/acoustic_3dpose.html">project | </a>
-                          <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Shibata_Listening_Human_Behavior_3D_Human_Pose_Estimation_With_Acoustic_Signals_CVPR_2023_paper.pdf">paper | </a>
-                          <a href="https://github.com/YutoShibata07/AcousticPose_Public">code </a>
-                  </p></td>
-              </tr>
-          </tbody></table>
+  <!-- ===== Invited Talks ===== -->
+  <section class="section">
+    <h2 class="section-title">Invited Talks</h2>
+    <div class="talk-item">
+      <div class="talk-date">Jul 2023</div>
+      <div class="talk-desc">
+        Invited talk at <a href="https://cvim.ipsj.or.jp/MIRU2023/">MIRU 2023</a> &mdash; "Listening Human Behavior: 3D Human Pose Estimation With Acoustic Signals"
+      </div>
+    </div>
+  </section>
 
-              <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-                  <tbody><tr>
-                      <td>
-                          <heading>Invited Talks</heading>
-                      </td>
-                  </tr>
-              </tbody></table>
-              <table class="news-table" width="100%" align="center" border="0" style="text-align: justify">
-                  <colgroup>
-                      <col width="15%">
-                      <col width="85%">
-                  </colgroup>
-                  <tbody>
-                  <tr>
-                      <td valign="top" align="center"><strong>Jul 2023</strong></td>
-                      <td> Invited talk at <a href="https://cvim.ipsj.or.jp/MIRU2023/">MIRU2023</a>, "Listening Human Behavior: 3D Human Pose Estimation With Acoustic Signals"
-                      </td>
-                  </tr>
-                  </tbody>
-              </table>
-              <!-- <tbody>
-                <tr>
-                    <td>
-                        <heading>Affiliations</heading>
-                    </td>
-                </tr>
-                </tbody>
-              <table align="center">
-                  <tbody>
-                  <tr>
-                      <td width="16%" align="center">
-                          <a href="https://www.zju.edu.cn/english/" target="_blank">
-                              <img style="width:120px" src="images/zju.png"></a>&nbsp;
-                      </td>
-                      <td width="16%" align="center">
-                          <a href="https://www.sfu.ca/" target="_blank">
-                              <img style="width:120px" src="images/sfu.png"></a>&nbsp;
-                      </td>
-                      <td width="16%" align="center">
-                          <a href="https://www.epfl.ch/en/" target="_blank">
-                              <img style="width:120px" src="images/epfl.png"></a>&nbsp;
-                      </td>
-                      <td width="16%" align="center">
-                          <a href="https://research.fb.com/category/facebook-ai-research" target="_blank">
-                              <img style="width:120px" src="images/fair.png"></a>&nbsp;
-                      </td>
-                  </tr>
-                  <tr>
-                      <td width="20%" align="center"><font size="2">Keio Univ, Japan<br>2018-present</font></td>
-                      <td width="20%" align="center"><font size="2">ANU, Austraria<br>2020</font></td>
-                      <td width="20%" align="center"><font size="2">Edi Univ, UK<br>2021-2022</font></td>
-                      <td width="20%" align="center"><font size="2">PFN, Japan <br>2023 - 2024</font></td>
-                  </tr>
-                  </tbody>
-              </table> -->
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>Template credits: <a href="https://unnat.github.io/">Unnat</a>, <a href="https://jonbarron.info/">Jon</a></p>
+  </footer>
 
-          <!--<table id="thanks" width="100%" align="center" border="0" cellspacing="0" cellpadding="20">-->
-          <!--<tr>-->
-          <!--<td>-->
-          <!--<br>-->
-          <!--<p align="right"><font size="2">-->
-          <!--<a href="http://www.cs.berkeley.edu/~barron/">(imitation is the sincerest form of flattery)</a>-->
-          <!--</font>-->
-          <!--</p>-->
-          <!--</td>-->
-          <!--</tr>-->
-          <!--</table>-->
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20">
-              <tbody>
-              <tr>
-                  <td><br>
-                      <p align="right"><font size="2">
-                          Template credits: <a href="https://unnat.github.io/">Unnat</a>, <a href="https://jonbarron.info/">Jon</a>
-                      </font></p></td>
-              </tr>
-              </tbody>
-          </table>
+</div>
 
-      </td>
-  </tr>
-</tbody></table>
-
-
-<div id="sff-extension" data-sff-extension-version="0.6.0.0"></div></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
+</body>
+</html>
