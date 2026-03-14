@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Yuto Shibata</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: A4;
+    margin: 14mm 16mm;
+  }
+  :root {
+    --accent: #1e3a5f;
+    --accent-light: #e8eef5;
+    --accent-mid: #3b6ea5;
+    --text: #1a1a1a;
+    --text-secondary: #3a3a3a;
+    --text-muted: #6b6b6b;
+    --border: #d0d5dd;
+    --bg: #ffffff;
+    --gold: #b8860b;
+    --gold-light: #fef9e7;
+    --gold-border: #e6c84e;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Source Serif 4', 'Georgia', serif;
+    font-size: 10pt;
+    line-height: 1.45;
+    color: var(--text);
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 16mm 18mm;
+    background: var(--bg);
+  }
+  a { color: var(--accent-mid); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ===== Header ===== */
+  .header {
+    text-align: center;
+    margin-bottom: 10pt;
+    padding-bottom: 10pt;
+    position: relative;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 80%;
+    height: 2pt;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+  .header h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 28pt;
+    font-weight: 700;
+    letter-spacing: 3pt;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4pt;
+  }
+  .header .subtitle {
+    font-family: 'Inter', sans-serif;
+    font-size: 10pt;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 6pt;
+    letter-spacing: 0.3pt;
+  }
+  .header .contact {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 3pt;
+  }
+  .header .contact a {
+    color: var(--text-muted);
+    padding: 1pt 5pt;
+    border-radius: 3pt;
+    transition: all 0.2s;
+  }
+  .header .contact a:hover {
+    color: var(--accent);
+    background: var(--accent-light);
+    text-decoration: none;
+  }
+  .header .contact .sep { color: var(--border); user-select: none; }
+
+  /* ===== Highlights Banner ===== */
+  .highlights {
+    display: flex;
+    justify-content: center;
+    gap: 20pt;
+    margin: 10pt 0 14pt;
+    padding: 8pt 0;
+    border-top: 1pt solid var(--border);
+    border-bottom: 1pt solid var(--border);
+    font-family: 'Inter', sans-serif;
+    font-size: 9pt;
+  }
+  .highlight-item {
+    text-align: center;
+  }
+  .highlight-item .num {
+    font-size: 16pt;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    line-height: 1.2;
+  }
+  .highlight-item .label {
+    font-size: 7.5pt;
+    text-transform: uppercase;
+    letter-spacing: 0.8pt;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  /* ===== Sections ===== */
+  .section { margin-bottom: 12pt; }
+  .section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.8pt;
+    color: var(--accent);
+    padding-bottom: 3pt;
+    margin-bottom: 8pt;
+    border-bottom: 1.5pt solid var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 6pt;
+  }
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 3.5pt;
+    height: 12pt;
+    background: var(--accent);
+    border-radius: 1pt;
+    flex-shrink: 0;
+  }
+
+  /* ===== Research Interests ===== */
+  .interests {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5pt;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 6pt 12pt;
+    background: var(--accent-light);
+    border-radius: 5pt;
+    line-height: 1.5;
+    letter-spacing: 0.2pt;
+  }
+
+  /* ===== Entries ===== */
+  .entry {
+    margin-bottom: 8pt;
+    page-break-inside: avoid;
+    padding-left: 9pt;
+    border-left: 2pt solid var(--accent-light);
+  }
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .entry-header .title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 10pt;
+    color: var(--text);
+  }
+  .entry-header .date {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 500;
+    color: var(--accent-mid);
+    white-space: nowrap;
+    margin-left: 8pt;
+    flex-shrink: 0;
+    background: var(--accent-light);
+    padding: 1pt 6pt;
+    border-radius: 3pt;
+  }
+  .entry-sub {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 0pt;
+  }
+  .entry-sub .role {
+    font-style: italic;
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+  }
+  .entry-sub .location {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .entry-detail {
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+    margin-top: 2pt;
+    padding-left: 12pt;
+  }
+  .entry-detail li {
+    margin-bottom: 1pt;
+    padding-left: 2pt;
+  }
+  .entry-detail li::marker {
+    content: '\25B8  ';
+    color: var(--accent-mid);
+    font-size: 7pt;
+  }
+
+  /* ===== Publications ===== */
+  .pub {
+    margin-bottom: 6pt;
+    font-size: 9.5pt;
+    padding: 5pt 9pt;
+    border-radius: 4pt;
+    background: #fafbfc;
+    border-left: 3pt solid var(--accent-light);
+    line-height: 1.45;
+  }
+  .pub.featured {
+    background: var(--gold-light);
+    border-left: 3pt solid var(--gold-border);
+  }
+  .pub .pub-num {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 8.5pt;
+    color: var(--accent-mid);
+    margin-right: 3pt;
+  }
+  .pub.featured .pub-num { color: var(--gold); }
+  .pub .pub-venue {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 9pt;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 1pt 5pt;
+    border-radius: 3pt;
+    white-space: nowrap;
+  }
+  .pub .pub-venue.top {
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    color: #78350f;
+    border: 0.5pt solid var(--gold-border);
+  }
+  .pub .me {
+    font-weight: 700;
+    color: var(--accent);
+  }
+  .pub .pub-title-text {
+    font-weight: 600;
+    color: var(--text);
+  }
+  .pub .pub-links {
+    margin-top: 2pt;
+  }
+  .pub .pub-links a {
+    font-family: 'Inter', sans-serif;
+    font-size: 8pt;
+    font-weight: 600;
+    color: var(--accent-mid);
+    padding: 1pt 5pt;
+    border: 1pt solid var(--border);
+    border-radius: 3pt;
+    margin-right: 2pt;
+    transition: all 0.15s;
+  }
+  .pub .pub-links a:hover {
+    background: var(--accent-light);
+    border-color: var(--accent-mid);
+    text-decoration: none;
+  }
+
+  /* ===== Awards ===== */
+  .award {
+    margin-bottom: 5pt;
+    padding-left: 9pt;
+    border-left: 2pt solid var(--accent-light);
+  }
+  .award-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .award-header .award-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 9.5pt;
+    color: var(--text);
+  }
+  .award-header .award-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 500;
+    color: var(--accent-mid);
+    background: var(--accent-light);
+    padding: 1pt 6pt;
+    border-radius: 3pt;
+  }
+  .award-detail {
+    font-size: 9pt;
+    color: var(--text-muted);
+    margin-top: 0pt;
+  }
+
+  /* ===== Skills ===== */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 90pt 1fr;
+    gap: 3pt 10pt;
+    font-size: 9.5pt;
+    padding-left: 9pt;
+  }
+  .skills-grid .label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 8.5pt;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.3pt;
+  }
+  .skills-grid .value {
+    color: var(--text-secondary);
+  }
+
+  /* ===== Talks ===== */
+  .talk {
+    margin-bottom: 3pt;
+    font-size: 9.5pt;
+    padding-left: 9pt;
+    border-left: 2pt solid var(--accent-light);
+  }
+
+  /* ===== Competitions ===== */
+  .comp-list {
+    font-size: 9.5pt;
+    color: var(--text-secondary);
+    padding-left: 22pt;
+  }
+  .comp-list li {
+    margin-bottom: 1pt;
+    padding-left: 2pt;
+  }
+  .comp-list li::marker {
+    content: '\25B8  ';
+    color: var(--accent-mid);
+    font-size: 7pt;
+  }
+
+  @media print {
+    body { padding: 0; }
+    .pub:hover { border-left-color: var(--accent-light); }
+    .pub.featured:hover { border-left-color: var(--gold-border); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<div class="header">
+  <h1>Yuto Shibata</h1>
+  <div class="subtitle">2nd-Year PhD Student, Keio University &nbsp;&bull;&nbsp; Visiting Researcher, Carnegie Mellon University</div>
+  <div class="contact">
+    <a href="mailto:yuto19990715@gmail.com">yuto19990715@gmail.com</a>
+    <span class="sep">&middot;</span>
+    <a href="https://yutoshibata07.github.io/">yutoshibata07.github.io</a>
+    <span class="sep">&middot;</span>
+    <a href="https://scholar.google.co.jp/citations?user=tVXueOYAAAAJ">Google Scholar</a>
+    <span class="sep">&middot;</span>
+    <a href="https://github.com/YutoShibata07/">GitHub</a>
+    <span class="sep">&middot;</span>
+    <a href="https://www.linkedin.com/in/yuto-shibata-a60976181/">LinkedIn</a>
+  </div>
+</div>
+
+<!-- ===== Highlights ===== -->
+<div class="highlights">
+  <div class="highlight-item">
+    <span class="num">2&times;</span>
+    <span class="label">CVPR</span>
+  </div>
+  <div class="highlight-item">
+    <span class="num">7</span>
+    <span class="label">Publications</span>
+  </div>
+  <div class="highlight-item">
+    <span class="num">5</span>
+    <span class="label">Awards</span>
+  </div>
+  <div class="highlight-item">
+    <span class="num">6</span>
+    <span class="label">First Author</span>
+  </div>
+</div>
+
+<!-- ===== RESEARCH INTERESTS ===== -->
+<div class="section">
+  <div class="section-title">Research Interests</div>
+  <div class="interests">
+    Computer Vision &nbsp;&bull;&nbsp; Physics-Based Human Motion Modeling &nbsp;&bull;&nbsp; Multi-Agent Reinforcement Learning &nbsp;&bull;&nbsp; Human-Robot Interaction &nbsp;&bull;&nbsp; Active Human Sensing
+  </div>
+</div>
+
+<!-- ===== EDUCATION ===== -->
+<div class="section">
+  <div class="section-title">Education</div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="title">Keio University</div>
+      <div class="date">Sep 2024 – Present</div>
+    </div>
+    <div class="entry-sub">
+      <div class="role">Ph.D. in Integrated Design Engineering</div>
+      <div class="location">Tokyo, Japan</div>
+    </div>
+    <ul class="entry-detail">
+      <li>Advisor: Prof. Yoshimitsu Aoki &amp; Dr. Mariko Isogawa</li>
+      <li>Research: Physics-grounded human motion modeling, active human sensing (CVPR 2023, BMVC 2024)</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="title">Carnegie Mellon University — Visiting Researcher</div>
+      <div class="date">Jun 2025 – Present</div>
+    </div>
+    <div class="entry-sub">
+      <div class="role">Machine Learning Department, School of Computer Science</div>
+      <div class="location">Pittsburgh, PA, USA</div>
+    </div>
+    <ul class="entry-detail">
+      <li>Host: Prof. Katerina Fragkiadaki</li>
+      <li>Conducted research on physics-based human-human interaction control via multi-agent reinforcement learning</li>
+      <li>Developed <em>AssistMimic</em>, a framework for learning assistive human behavior through physics simulation, accepted at <strong>CVPR 2026</strong></li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="title">Keio University</div>
+      <div class="date">Apr 2023 – Sep 2024</div>
+    </div>
+    <div class="entry-sub">
+      <div class="role">M.Eng. in Integrated Design Engineering</div>
+      <div class="location">Tokyo, Japan</div>
+    </div>
+    <ul class="entry-detail">
+      <li>Completed master's program in 1.5 years (accelerated to PhD)</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="title">University of Edinburgh — Exchange Program</div>
+      <div class="date">Sep 2021 – Jun 2022</div>
+    </div>
+    <div class="entry-sub">
+      <div class="role">School of Informatics, Computer Science</div>
+      <div class="location">Edinburgh, UK</div>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="title">Keio University</div>
+      <div class="date">Apr 2018 – Mar 2023</div>
+    </div>
+    <div class="entry-sub">
+      <div class="role">B.Eng. in Electronics and Electrical Engineering</div>
+      <div class="location">Tokyo, Japan</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PUBLICATIONS ===== -->
+<div class="section">
+  <div class="section-title">Selected Publications</div>
+
+  <div class="pub featured">
+    <span class="pub-num">[1]</span>
+    <span class="me">Y. Shibata</span>, K. Yamazaki, L. Jayanti, Y. Aoki, M. Isogawa, K. Fragkiadaki.
+    <span class="pub-title-text">"Learning to Assist: Physics-Grounded Human-Human Control via Multi-Agent Reinforcement Learning."</span>
+    <span class="pub-venue top">CVPR 2026</span>
+    <div class="pub-links">
+      <a href="https://yutoshibata07.github.io/AssistMimic/">Project</a>
+      <a href="https://arxiv.org/abs/2603.11346">arXiv</a>
+    </div>
+  </div>
+
+  <div class="pub">
+    <span class="pub-num">[2]</span>
+    <span class="me">Y. Shibata</span>, Y. Oumi, G. Irie, A. Kimura, Y. Aoki, M. Isogawa.
+    <span class="pub-title-text">"BGM2Pose: Active 3D Human Pose Estimation with Non-Stationary Sounds."</span>
+    <span class="pub-venue">arXiv preprint, 2025</span>
+    <div class="pub-links">
+      <a href="https://arxiv.org/abs/2503.00389">arXiv</a>
+    </div>
+  </div>
+
+  <div class="pub">
+    <span class="pub-num">[3]</span>
+    <span class="me">Y. Shibata</span>, M. Ishige, H. Murakami, Y. Kawahara.
+    <span class="pub-title-text">"Occlusion-Resilient UWB Localization Via Ceiling Reflection With Floor Anchor Installation."</span>
+    <span class="pub-venue">ACM SenSys 2025 (Poster)</span>
+    <div class="pub-links">
+      <a href="https://dl.acm.org/doi/abs/10.1145/3715014.3724050">Paper</a>
+    </div>
+  </div>
+
+  <div class="pub">
+    <span class="pub-num">[4]</span>
+    <span class="me">Y. Shibata</span>, K. Tanaka, Y. Bando, H. Kataoka, Y. Aoki.
+    <span class="pub-title-text">"Formula-Supervised Sound Event Detection: Pre-Training Without Real Data."</span>
+    <span class="pub-venue">IEEE ICASSP 2025</span>
+    <div class="pub-links">
+      <a href="https://yutoshibata07.github.io/Formula-SED/">Project</a>
+      <a href="https://ieeexplore.ieee.org/abstract/document/10888414">Paper</a>
+    </div>
+  </div>
+
+  <div class="pub">
+    <span class="pub-num">[5]</span>
+    <span class="me">Y. Shibata</span>, Y. Kudo, Y. Sugawara.
+    <span class="pub-title-text">"Anatomical Three-Dimensional Style Transfer Enabling Efficient Federated Learning with Extremely Low Communication Costs."</span>
+    <span class="pub-venue">NeurIPS 2024 Workshop (AIM-FM)</span>
+    <div class="pub-links">
+      <a href="https://arxiv.org/abs/2410.20102">arXiv</a>
+    </div>
+  </div>
+
+  <div class="pub">
+    <span class="pub-num">[6]</span>
+    Y. Oumi, <span class="me">Y. Shibata</span>, G. Irie, A. Kimura, Y. Aoki, M. Isogawa.
+    <span class="pub-title-text">"Acoustic-based 3D Human Pose Estimation Robust to Human Position."</span>
+    <span class="pub-venue">BMVC 2024</span>
+    <div class="pub-links">
+      <a href="https://arxiv.org/abs/2411.07165">arXiv</a>
+    </div>
+  </div>
+
+  <div class="pub featured">
+    <span class="pub-num">[7]</span>
+    <span class="me">Y. Shibata</span>, Y. Kawashima, M. Isogawa, G. Irie, A. Kimura, Y. Aoki.
+    <span class="pub-title-text">"Listening Human Behavior: 3D Human Pose Estimation With Acoustic Signals."</span>
+    <span class="pub-venue top">CVPR 2023</span>
+    <div class="pub-links">
+      <a href="https://isogawa.ics.keio.ac.jp/research_project/acoustic_3dpose.html">Project</a>
+      <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Shibata_Listening_Human_Behavior_3D_Human_Pose_Estimation_With_Acoustic_Signals_CVPR_2023_paper.pdf">Paper</a>
+      <a href="https://github.com/YutoShibata07/AcousticPose_Public">Code</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== AWARDS ===== -->
+<div class="section">
+  <div class="section-title">Honors &amp; Awards</div>
+
+  <div class="award">
+    <div class="award-header">
+      <div class="award-name">MIRU Excellent Paper Award — MIRU 2025</div>
+      <div class="award-date">Jul 2025</div>
+    </div>
+    <div class="award-detail">Ranked 2nd out of 726 presentations. "Universal Human Pose Representation for Multi-Modal Active Sensing"</div>
+  </div>
+
+  <div class="award">
+    <div class="award-header">
+      <div class="award-name">MIRU Interactive Presentation Award — MIRU 2024</div>
+      <div class="award-date">Aug 2024</div>
+    </div>
+    <div class="award-detail">Awarded to the author of a paper with an excellent interactive presentation.</div>
+  </div>
+
+  <div class="award">
+    <div class="award-header">
+      <div class="award-name">MIRU Student Encouragement Award — MIRU 2024</div>
+      <div class="award-date">Aug 2024</div>
+    </div>
+    <div class="award-detail">Awarded to presenters of outstanding oral research presentations by student first authors.</div>
+  </div>
+
+  <div class="award">
+    <div class="award-header">
+      <div class="award-name">IPSJ Yamashita SIG Research Award</div>
+      <div class="award-date">Jul 2023</div>
+    </div>
+    <div class="award-detail">Awarded to presenters of particularly outstanding papers from workshops and symposia.</div>
+  </div>
+
+  <div class="award">
+    <div class="award-header">
+      <div class="award-name">Frontier Award — MIRU 2022</div>
+      <div class="award-date">Jul 2022</div>
+    </div>
+    <div class="award-detail">Awarded to the most pioneering initiative in research with an outstanding presentation.</div>
+  </div>
+</div>
+
+<!-- ===== RESEARCH EXPERIENCE ===== -->
+<div class="section">
+  <div class="section-title">Research Experience</div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="title">Carnegie Mellon University</div>
+      <div class="date">Jun 2025 – Present</div>
+    </div>
+    <div class="entry-sub">
+      <div class="role">Visiting Researcher, Machine Learning Department</div>
+      <div class="location">Pittsburgh, PA, USA</div>
+    </div>
+    <ul class="entry-detail">
+      <li>Host: Prof. Katerina Fragkiadaki</li>
+      <li>Research on physics-based human-human interaction control via multi-agent reinforcement learning</li>
+      <li>Developed <em>AssistMimic</em>, a framework for learning assistive human behavior through physics simulation, accepted at <strong>CVPR 2026</strong></li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="title">Aoki Media Laboratory, Keio University</div>
+      <div class="date">2021 – Present</div>
+    </div>
+    <div class="entry-sub">
+      <div class="role">Graduate Student</div>
+      <div class="location">Tokyo, Japan</div>
+    </div>
+    <ul class="entry-detail">
+      <li>Pioneered acoustic-based 3D human pose estimation using reflected chirp signals — accepted at CVPR 2023</li>
+      <li>Developed active sensing methods combining audio and multimodal signals for human understanding</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="title">National Institute of Advanced Industrial Science and Technology (AIST)</div>
+      <div class="date">Jul 2023 – Present</div>
+    </div>
+    <div class="entry-sub">
+      <div class="role">Research Assistant</div>
+      <div class="location">Tsukuba, Japan</div>
+    </div>
+    <ul class="entry-detail">
+      <li>Conducted research on formula-supervised sound event detection pre-training</li>
+      <li>Work accepted at IEEE ICASSP 2025</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== INDUSTRY EXPERIENCE ===== -->
+<div class="section">
+  <div class="section-title">Industry Experience</div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="title">CyberAgent, Inc.</div>
+      <div class="date">Feb 2025 – Jun 2025</div>
+    </div>
+    <div class="entry-sub">
+      <div class="role">Research Intern / Part-time Researcher</div>
+      <div class="location">Tokyo, Japan</div>
+    </div>
+    <ul class="entry-detail">
+      <li>Conducted research on UWB localization resilient to occlusion via ceiling reflection</li>
+      <li>Work accepted as a poster at ACM SenSys 2025</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="title">Preferred Networks, Inc.</div>
+      <div class="date">Aug 2023 – Mar 2024</div>
+    </div>
+    <div class="entry-sub">
+      <div class="role">Research Intern</div>
+      <div class="location">Tokyo, Japan</div>
+    </div>
+    <ul class="entry-detail">
+      <li>Developed anatomical 3D style transfer for communication-efficient medical federated learning</li>
+      <li>Work accepted at NeurIPS 2024 Workshop (AIM-FM)</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="title">Recruit Co., Ltd.</div>
+      <div class="date">Feb 2021 – Mar 2021, Aug 2022 – Mar 2023</div>
+    </div>
+    <div class="entry-sub">
+      <div class="role">ML Engineer / Research Intern</div>
+      <div class="location">Tokyo, Japan</div>
+    </div>
+    <ul class="entry-detail">
+      <li>Applied transformer architectures for large-scale recommendation systems</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="title">Tenchijin, Inc.</div>
+      <div class="date">Aug 2022 – Present</div>
+    </div>
+    <div class="entry-sub">
+      <div class="role">Data Scientist</div>
+      <div class="location">Tokyo, Japan</div>
+    </div>
+    <ul class="entry-detail">
+      <li>Analyzed geospatial (GIS) data for satellite-based applications</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== INVITED TALKS ===== -->
+<div class="section">
+  <div class="section-title">Invited Talks</div>
+  <div class="talk">
+    <strong>MIRU 2023</strong> (Jul 2023) — "Listening Human Behavior: 3D Human Pose Estimation With Acoustic Signals"
+  </div>
+</div>
+
+<!-- ===== SKILLS ===== -->
+<div class="section">
+  <div class="section-title">Technical Skills</div>
+  <div class="skills-grid">
+    <div class="label">Programming</div>
+    <div class="value">Python</div>
+    <div class="label">ML / DL</div>
+    <div class="value">PyTorch, Isaac Gym / IsaacLab, Hugging Face, scikit-learn</div>
+    <div class="label">Research</div>
+    <div class="value">Reinforcement Learning, Physics Simulation, Computer Vision, Human Pose Estimation, Physics-Based Human(oid) Tracking, Signal Processing</div>
+    <div class="label">Tools</div>
+    <div class="value">Git, Docker, Linux, LaTeX, Weights &amp; Biases</div>
+    <div class="label">Languages</div>
+    <div class="value">Japanese (native), English (fluent — 1-year study at Univ. of Edinburgh, research at CMU)</div>
+  </div>
+</div>
+
+<!-- ===== COMPETITIONS ===== -->
+<div class="section">
+  <div class="section-title">Competitions</div>
+  <div style="padding-left: 9pt; font-size: 9.5pt; margin-bottom: 3pt;">
+    <strong style="font-family: 'Inter', sans-serif;">Kaggle</strong>
+    <span style="color: var(--text-muted);">— Multiple silver medals across diverse domains</span>
+    [<a href="https://www.kaggle.com/yutoshibata">Profile</a>]
+  </div>
+  <ul class="comp-list">
+    <li>OSIC Pulmonary Fibrosis Progression — 20th / 2,097 teams (Silver)</li>
+    <li>Cassava Leaf Disease Classification — 54th / 3,900 teams (Silver)</li>
+    <li>CommonLit Readability Prize — 139th / 3,633 teams (Silver)</li>
+  </ul>
+</div>
+
+</body>
+</html>
