@@ -24,651 +24,432 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --color-bg: #fafafa;
-      --color-surface: #ffffff;
-      --color-text: #1a1a2e;
-      --color-text-secondary: #555;
-      --color-accent: #2563eb;
-      --color-accent-hover: #1d4ed8;
-      --color-highlight: #f59e0b;
-      --color-border: #e5e7eb;
-      --color-tag-bg: #eff6ff;
-      --color-tag-text: #1e40af;
-      --color-tag-top-bg: #fef3c7;
-      --color-tag-top-text: #92400e;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-      --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
-      --radius: 12px;
-      --max-width: 1100px;
+      --ink: #1c1c1c;
+      --muted: #5c5c5c;
+      --faint: #8b8b8b;
+      --rule: #e4e1da;
+      --link: #1d5aa3;
+      --highlight: #fbf6e6;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * { box-sizing: border-box; }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--color-bg);
-      color: var(--color-text);
-      line-height: 1.7;
-      font-size: 15px;
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font: 16px/1.6 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: var(--color-accent);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    a:hover {
-      color: var(--color-accent-hover);
-    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    .container {
-      max-width: var(--max-width);
+    .page {
+      max-width: 860px;
       margin: 0 auto;
-      padding: 40px 24px 60px;
+      padding: 56px 24px 40px;
     }
 
-    /* ---- Hero Section ---- */
-    .hero {
+    h1, h2 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    /* Intro */
+    .intro {
       display: flex;
       gap: 40px;
-      align-items: center;
-      margin-bottom: 48px;
+      align-items: flex-start;
+      margin-bottom: 52px;
     }
 
-    .hero-photo {
-      flex-shrink: 0;
+    .intro-text { flex: 1; }
+
+    .intro h1 {
+      margin: 0 0 4px;
+      font-size: 34px;
+      line-height: 1.2;
     }
 
-    .hero-photo img {
-      width: 200px;
-      height: 200px;
+    .intro h1 .jp {
+      margin-left: 10px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--muted);
+    }
+
+    .role {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .intro p { margin: 0 0 12px; }
+
+    .contact {
+      margin-top: 18px !important;
+      color: var(--faint);
+    }
+
+    .portrait {
+      flex: none;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
       object-fit: cover;
-      border: 4px solid var(--color-surface);
-      box-shadow: var(--shadow-lg);
     }
 
-    .hero-text h1 {
-      font-size: 32px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin-bottom: 2px;
+    /* Sections */
+    section { margin-bottom: 48px; }
+
+    h2 {
+      margin: 0 0 20px;
+      padding-bottom: 6px;
+      font-size: 23px;
+      border-bottom: 1px solid var(--rule);
     }
 
-    .hero-text h1 span {
-      font-weight: 400;
-      font-size: 20px;
-      color: var(--color-text-secondary);
-      margin-left: 8px;
-    }
-
-    .hero-text .tagline {
-      color: var(--color-text-secondary);
-      font-size: 15px;
-      margin-top: 4px;
-      margin-bottom: 14px;
-    }
-
-    .hero-text p {
-      margin-bottom: 10px;
-      color: var(--color-text);
-    }
-
-    .links {
+    /* Papers */
+    .paper {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
-    }
-
-    .links a {
-      display: inline-flex;
+      gap: 24px;
       align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 500;
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      color: var(--color-text);
-      transition: all 0.2s;
-    }
-    .links a:hover {
-      border-color: var(--color-accent);
-      color: var(--color-accent);
-      box-shadow: var(--shadow-sm);
-      transform: translateY(-1px);
+      margin: 0 -14px;
+      padding: 14px;
+      border-radius: 6px;
     }
 
-    .links a svg {
-      width: 15px;
-      height: 15px;
-    }
+    .paper + .paper { margin-top: 6px; }
 
-    /* ---- Section ---- */
-    .section {
-      margin-bottom: 44px;
-    }
+    .paper.highlight { background: var(--highlight); }
 
-    .section-title {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      padding-bottom: 10px;
-      margin-bottom: 24px;
-      border-bottom: 2px solid var(--color-text);
-      display: inline-block;
-    }
-
-    /* ---- Publication Card ---- */
-    .pub-card {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-      background: var(--color-surface);
-      border-radius: var(--radius);
-      padding: 20px;
-      margin-bottom: 16px;
-      border: 1px solid var(--color-border);
-      transition: box-shadow 0.25s, transform 0.25s;
-    }
-    .pub-card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-    }
-
-    .pub-thumb {
-      flex-shrink: 0;
-      width: 340px;
-      height: 200px;
-      border-radius: 8px;
-      overflow: hidden;
+    .thumb {
+      flex: none;
+      width: 220px;
+      aspect-ratio: 16 / 10;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #f3f4f6;
+      overflow: hidden;
+      border-radius: 4px;
+      background: #f4f3ef;
     }
 
-    .pub-thumb img {
+    .thumb img,
+    .thumb video {
       width: 100%;
       height: 100%;
       object-fit: contain;
       display: block;
     }
 
-    .pub-thumb video {
-      height: 100%;
-      width: auto;
+    .meta { flex: 1; }
+
+    .title {
       display: block;
-    }
-
-    /* Featured publication (CVPR main) */
-    .pub-card.featured {
-      border: 2px solid var(--color-highlight);
-      background: linear-gradient(135deg, #fffbeb 0%, #ffffff 40%);
-      box-shadow: var(--shadow-sm);
-    }
-    .pub-card.featured:hover {
-      box-shadow: 0 6px 20px rgba(245, 158, 11, 0.15);
-    }
-
-    .pub-info {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .pub-info .pub-title {
-      font-size: 16px;
+      margin-bottom: 3px;
+      color: var(--ink);
       font-weight: 600;
-      line-height: 1.4;
-      margin-bottom: 6px;
-      color: var(--color-text);
+      line-height: 1.35;
     }
 
-    .pub-info .pub-authors {
-      font-size: 13.5px;
-      color: var(--color-text-secondary);
-      margin-bottom: 8px;
-      line-height: 1.5;
+    .authors {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.45;
     }
 
-    .pub-info .pub-authors .me {
+    .authors .me { color: var(--ink); font-weight: 600; }
+
+    .venue {
+      margin-top: 3px;
+      font-size: 15px;
+      font-style: italic;
+    }
+
+    .award {
+      color: #a12a2a;
+      font-style: normal;
       font-weight: 600;
-      color: var(--color-text);
-      text-decoration: underline;
-      text-underline-offset: 2px;
     }
 
-    .pub-tags {
+    .plinks {
+      margin-top: 4px;
+      font-size: 15px;
+      color: var(--faint);
+    }
+
+    /* Awards and talks */
+    .entry {
       display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 10px;
+      gap: 20px;
+      padding: 7px 0;
     }
 
-    .tag {
-      display: inline-block;
-      font-size: 13.5px;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 6px;
-      background: var(--color-tag-bg);
-      color: var(--color-tag-text);
-      letter-spacing: 0.2px;
+    .entry .date {
+      flex: none;
+      width: 72px;
+      color: var(--faint);
+      font-size: 15px;
+      font-variant-numeric: tabular-nums;
     }
 
-    .tag.top {
-      background: var(--color-tag-top-bg);
-      color: var(--color-tag-top-text);
+    .entry .note {
+      display: block;
+      color: var(--muted);
+      font-size: 15px;
     }
 
-    .tag.award {
-      background: #fde8e8;
-      color: #c0392b;
-      font-weight: 700;
-    }
-
-    .pub-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: auto;
-    }
-
-    .pub-links a {
-      font-size: 12.5px;
-      font-weight: 500;
-      padding: 4px 12px;
-      border-radius: 6px;
-      border: 1px solid var(--color-border);
-      color: var(--color-text-secondary);
-      transition: all 0.2s;
-    }
-    .pub-links a:hover {
-      border-color: var(--color-accent);
-      color: var(--color-accent);
-      background: var(--color-tag-bg);
-    }
-    .pub-links .coming-soon {
-      font-size: 12.5px;
-      font-weight: 500;
-      padding: 4px 12px;
-      border-radius: 6px;
-      border: 1px dashed var(--color-border);
-      color: var(--color-text-secondary);
-      opacity: 0.7;
-    }
-
-    /* ---- Talks ---- */
-    .talk-item {
-      display: flex;
-      gap: 16px;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--color-border);
-    }
-    .talk-item:last-child {
-      border-bottom: none;
-    }
-    .talk-date {
-      flex-shrink: 0;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--color-text-secondary);
-      min-width: 80px;
-      padding-top: 1px;
-    }
-    .talk-desc {
-      font-size: 14.5px;
-    }
-
-    /* ---- Footer ---- */
     footer {
-      text-align: center;
-      color: #999;
-      font-size: 12px;
-      padding-top: 20px;
-      border-top: 1px solid var(--color-border);
+      margin-top: 24px;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+      color: var(--faint);
+      font-size: 13px;
     }
 
-    /* ---- Smooth scroll & animations ---- */
-    html { scroll-behavior: smooth; }
+    footer a { color: var(--faint); text-decoration: underline; }
 
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero { animation: fadeInUp 0.6s ease-out; }
-    .section { animation: fadeInUp 0.6s ease-out both; }
-    .pub-card { animation: fadeInUp 0.5s ease-out both; }
-    .pub-card:nth-child(2) { animation-delay: 0.05s; }
-    .pub-card:nth-child(3) { animation-delay: 0.1s; }
-    .pub-card:nth-child(4) { animation-delay: 0.15s; }
-    .pub-card:nth-child(5) { animation-delay: 0.2s; }
-    .pub-card:nth-child(6) { animation-delay: 0.25s; }
-    .pub-card:nth-child(7) { animation-delay: 0.3s; }
-    .pub-card:nth-child(8) { animation-delay: 0.35s; }
-
-    /* ---- Responsive ---- */
-    @media (max-width: 700px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-      }
-      .links {
-        justify-content: center;
-      }
-      .pub-card {
-        flex-direction: column;
-      }
-      .pub-thumb {
-        width: 100%;
-      }
+    @media (max-width: 680px) {
+      .page { padding-top: 36px; }
+      .intro { flex-direction: column-reverse; gap: 20px; }
+      .portrait { width: 132px; height: 132px; }
+      .paper { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .thumb { width: 100%; }
+      .entry { flex-direction: column; gap: 0; }
     }
   </style>
 </head>
 <body>
 
-<div class="container">
+<div class="page">
 
-  <!-- ===== Hero ===== -->
-  <section class="hero">
-    <div class="hero-photo">
-      <img src="images/face-zoom.jpg" alt="Yuto Shibata">
+  <header class="intro">
+    <div class="intro-text">
+      <h1>Yuto Shibata <span class="jp">柴田 優斗</span></h1>
+      <p class="role">PhD student at Keio University, currently visiting Carnegie Mellon University</p>
+
+      <p>I am a PhD student in the <a href="https://aoki-medialab.jp/home-en/">Aoki Lab</a> at <a href="https://www.keio.ac.jp/en/">Keio University</a>, advised by <a href="https://scholar.google.com.au/citations?user=fd_IY8AAAAAJ&hl=ja">Prof. Yoshimitsu Aoki</a> and <a href="https://scholar.google.com/citations?user=SQdd110AAAAJ&hl=ja">Dr. Mariko Isogawa</a>.</p>
+
+      <p>I am currently at <a href="https://www.cs.cmu.edu/">Carnegie Mellon University</a> with <a href="https://www.cs.cmu.edu/~katef/">Prof. Katerina Fragkiadaki</a>, working on physics-based humanoid control: using reinforcement learning to make simulated humanoids move the way people do.</p>
+
+      <p>More broadly, I work on computer vision, human motion, robotics, and sensing people with sound and wireless signals.</p>
+
+      <p class="contact">
+        <a href="yutoshibata_cv_2026.html">CV</a> &nbsp;/&nbsp;
+        <a href="mailto:yuto19990715@gmail.com">Email</a> &nbsp;/&nbsp;
+        <a href="https://scholar.google.co.jp/citations?user=tVXueOYAAAAJ&hl=ja&oi=sra">Google Scholar</a> &nbsp;/&nbsp;
+        <a href="https://github.com/YutoShibata07/">GitHub</a> &nbsp;/&nbsp;
+        <a href="https://x.com/shibatashi_">X</a> &nbsp;/&nbsp;
+        <a href="https://www.linkedin.com/in/yuto-shibata-a60976181/?locale=en_US">LinkedIn</a>
+      </p>
     </div>
-    <div class="hero-text">
-      <h1>Yuto Shibata <span>柴田 優斗</span></h1>
-      <p class="tagline">PhD Student @ Keio University &middot; Visiting @ CMU</p>
-      <p>I am a PhD student at <a href="https://aoki-medialab.jp/home-en/">Aoki Lab</a>, <a href="https://www.keio.ac.jp/en/">Keio University</a>, advised by <a href="https://scholar.google.com.au/citations?user=fd_IY8AAAAAJ&hl=ja">Prof. Yoshimitsu Aoki</a> and <a href="https://scholar.google.com/citations?user=SQdd110AAAAJ&hl=ja">Dr. Mariko Isogawa</a>.</p>
-      <p>I am staying at <a href="https://www.cs.cmu.edu/">Carnegie Mellon University</a> under <a href="https://www.cs.cmu.edu/~katef/">Prof. Katerina Fragkiadaki</a>, working on <strong>physics-based humanoid control</strong> &mdash; training simulated humanoid characters to perform human-like whole-body motion via reinforcement learning in physics simulation.</p>
-      <p>My research interests include computer vision, physics-based humanoid control, human motion modeling, robotics, and wireless human sensing.</p>
+    <img class="portrait" src="images/face-zoom.jpg" alt="Yuto Shibata">
+  </header>
 
-      <div class="links">
-        <a href="yutoshibata_cv_2026.html">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
-          CV
-        </a>
-        <a href="mailto:yuto19990715@gmail.com">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
-          Email
-        </a>
-        <a href="https://scholar.google.co.jp/citations?user=tVXueOYAAAAJ&hl=ja&oi=sra">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"/></svg>
-          Scholar
-        </a>
-        <a href="https://github.com/YutoShibata07/">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-          GitHub
-        </a>
-        <a href="https://x.com/shibatashi_">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          Twitter
-        </a>
-        <a href="https://www.linkedin.com/in/yuto-shibata-a60976181/?locale=en_US">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          LinkedIn
-        </a>
-      </div>
-    </div>
-  </section>
+  <section>
+    <h2>Publications</h2>
 
-  <!-- ===== Publications ===== -->
-  <section class="section">
-    <h2 class="section-title">📄 Publications</h2>
-
-    <!-- ECCV 2026 -->
-    <div class="pub-card">
-      <div class="pub-thumb">
+    <div class="paper">
+      <a class="thumb" href="https://oumi03.github.io/sound-mhpe/">
         <img src="images/eccv2026-sound-multiperson.jpeg" alt="Sound-based Multi-Person 3D Pose Estimation">
-      </div>
-      <div class="pub-info">
-        <div class="pub-tags">
-          <span class="tag top">ECCV 2026</span>
-        </div>
-        <div class="pub-title">Sound-based Multi-Person 3D Pose Estimation</div>
-        <div class="pub-authors">
-          Yusuke Oumi, <span class="me">Yuto Shibata</span>, Go Irie, Akisato Kimura, Yoshimitsu Aoki, Mariko Isogawa
-        </div>
-        <div class="pub-links">
-          <a href="https://oumi03.github.io/sound-mhpe/">Project</a>
-          <a href="https://arxiv.org/abs/2609.04902">arXiv</a>
-          <a href="https://github.com/oumi03/SoundMHPE">Code</a>
-          <a href="https://drive.google.com/drive/folders/1D5bSWiR1x0HBFvLcM-kf6pDl0mExgcQW">Dataset</a>
+      </a>
+      <div class="meta">
+        <a class="title" href="https://oumi03.github.io/sound-mhpe/">Sound-based Multi-Person 3D Pose Estimation</a>
+        <div class="authors">Yusuke Oumi, <span class="me">Yuto Shibata</span>, Go Irie, Akisato Kimura, Yoshimitsu Aoki, Mariko Isogawa</div>
+        <div class="venue">ECCV 2026</div>
+        <div class="plinks">
+          <a href="https://oumi03.github.io/sound-mhpe/">project</a> /
+          <a href="https://arxiv.org/abs/2609.04902">arXiv</a> /
+          <a href="https://github.com/oumi03/SoundMHPE">code</a> /
+          <a href="https://drive.google.com/drive/folders/1D5bSWiR1x0HBFvLcM-kf6pDl0mExgcQW">dataset</a>
         </div>
       </div>
     </div>
 
-    <!-- BGM2Pose - IEEE OJSP 2026 -->
-    <div class="pub-card">
-      <div class="pub-thumb">
+    <div class="paper">
+      <a class="thumb" href="https://yutoshibata07.github.io/bgm2pose-project-page/">
         <video autoplay loop muted playsinline>
           <source src="images/bgm2pose-mini-video.mp4" type="video/mp4">
         </video>
-      </div>
-      <div class="pub-info">
-        <div class="pub-tags">
-          <span class="tag">IEEE Open Journal of Signal Processing 2026</span>
-        </div>
-        <div class="pub-title">BGM2Pose: Active 3D Human Pose Estimation with Non-Stationary Sounds</div>
-        <div class="pub-authors">
-          <span class="me">Yuto Shibata</span>, Yusuke Oumi, Go Irie, Akisato Kimura, Yoshimitsu Aoki, Mariko Isogawa
-        </div>
-        <div class="pub-links">
-          <a href="https://yutoshibata07.github.io/bgm2pose-project-page/">Project</a>
-          <a href="https://ieeexplore.ieee.org/document/11570037/">Paper</a>
-          <a href="https://arxiv.org/abs/2503.00389">arXiv</a>
-          <a href="https://github.com/YutoShibata07/bgm2pose">Code</a>
-          <a href="https://drive.google.com/file/d/1u3uDFPnc6aOf0leslzXGF7wufUKXVYej/view?usp=sharing">Dataset</a>
+      </a>
+      <div class="meta">
+        <a class="title" href="https://yutoshibata07.github.io/bgm2pose-project-page/">BGM2Pose: Active 3D Human Pose Estimation with Non-Stationary Sounds</a>
+        <div class="authors"><span class="me">Yuto Shibata</span>, Yusuke Oumi, Go Irie, Akisato Kimura, Yoshimitsu Aoki, Mariko Isogawa</div>
+        <div class="venue">IEEE Open Journal of Signal Processing, 2026</div>
+        <div class="plinks">
+          <a href="https://yutoshibata07.github.io/bgm2pose-project-page/">project</a> /
+          <a href="https://ieeexplore.ieee.org/document/11570037/">paper</a> /
+          <a href="https://arxiv.org/abs/2503.00389">arXiv</a> /
+          <a href="https://github.com/YutoShibata07/bgm2pose">code</a> /
+          <a href="https://drive.google.com/file/d/1u3uDFPnc6aOf0leslzXGF7wufUKXVYej/view?usp=sharing">dataset</a>
         </div>
       </div>
     </div>
 
-    <!-- ICPR 2026 -->
-    <div class="pub-card">
-      <div class="pub-thumb">
+    <div class="paper">
+      <a class="thumb" href="https://arxiv.org/abs/2604.10413">
         <img src="images/manabe-icpr-fig1-cropped.png" alt="Sign-to-Speech Prosody Transfer">
-      </div>
-      <div class="pub-info">
-        <div class="pub-tags">
-          <span class="tag">ICPR 2026 🇫🇷</span>
-          <span class="tag award">🏆 Best Scientific Paper Award</span>
-        </div>
-        <div class="pub-title">Sign-to-Speech Prosody Transfer via Sign Reconstruction-based GAN</div>
-        <div class="pub-authors">
-          Toranosuke Manabe, <span class="me">Yuto Shibata</span>, Shinnosuke Takamichi, Yoshimitsu Aoki
-        </div>
-        <div class="pub-links">
+      </a>
+      <div class="meta">
+        <a class="title" href="https://arxiv.org/abs/2604.10413">Sign-to-Speech Prosody Transfer via Sign Reconstruction-based GAN</a>
+        <div class="authors">Toranosuke Manabe, <span class="me">Yuto Shibata</span>, Shinnosuke Takamichi, Yoshimitsu Aoki</div>
+        <div class="venue">ICPR 2026 &nbsp;<span class="award">Best Scientific Paper Award</span></div>
+        <div class="plinks">
           <a href="https://arxiv.org/abs/2604.10413">arXiv</a>
         </div>
       </div>
     </div>
 
-    <!-- AssistMimic - CVPR 2026 -->
-    <div class="pub-card featured">
-      <div class="pub-thumb">
+    <div class="paper highlight">
+      <a class="thumb" href="https://yutoshibata07.github.io/AssistMimic/">
         <video autoplay loop muted playsinline>
           <source src="images/assistmimic-mini-video.mp4" type="video/mp4">
         </video>
-      </div>
-      <div class="pub-info">
-        <div class="pub-tags">
-          <span class="tag top">CVPR 2026 🇺🇸</span>
-        </div>
-        <div class="pub-title">Learning to Assist: Physics-Grounded Human-Human Control via Multi-Agent Reinforcement Learning</div>
-        <div class="pub-authors">
-          <span class="me">Yuto Shibata</span>, Kashu Yamazaki, Lalit Jayanti, Yoshimitsu Aoki, Mariko Isogawa, Katerina Fragkiadaki
-        </div>
-        <div class="pub-links">
-          <a href="https://yutoshibata07.github.io/AssistMimic/">Project</a>
-          <a href="https://arxiv.org/abs/2603.11346">arXiv</a>
-          <a href="https://github.com/YutoShibata07/AssistMimic/">Code</a>
+      </a>
+      <div class="meta">
+        <a class="title" href="https://yutoshibata07.github.io/AssistMimic/">Learning to Assist: Physics-Grounded Human-Human Control via Multi-Agent Reinforcement Learning</a>
+        <div class="authors"><span class="me">Yuto Shibata</span>, Kashu Yamazaki, Lalit Jayanti, Yoshimitsu Aoki, Mariko Isogawa, Katerina Fragkiadaki</div>
+        <div class="venue">CVPR 2026</div>
+        <div class="plinks">
+          <a href="https://yutoshibata07.github.io/AssistMimic/">project</a> /
+          <a href="https://arxiv.org/abs/2603.11346">arXiv</a> /
+          <a href="https://github.com/YutoShibata07/AssistMimic/">code</a>
         </div>
       </div>
     </div>
 
-    <!-- SenSys 2025 -->
-    <div class="pub-card">
-      <div class="pub-thumb">
+    <div class="paper">
+      <a class="thumb" href="https://dl.acm.org/doi/abs/10.1145/3715014.3724050">
         <img src="images/sensys2025_overview.png" alt="UWB Localization">
-      </div>
-      <div class="pub-info">
-        <div class="pub-tags">
-          <span class="tag">SenSys 2025 🇺🇸</span>
-        </div>
-        <div class="pub-title">Occlusion-Resilient UWB Localization Via Ceiling Reflection With Floor Anchor Installation</div>
-        <div class="pub-authors">
-          <span class="me">Yuto Shibata</span>, Matthew Ishige, Hiroaki Murakami, Yoshihiro Kawahara
-        </div>
-        <div class="pub-links">
-          <a href="https://dl.acm.org/doi/abs/10.1145/3715014.3724050">Paper</a>
+      </a>
+      <div class="meta">
+        <a class="title" href="https://dl.acm.org/doi/abs/10.1145/3715014.3724050">Occlusion-Resilient UWB Localization Via Ceiling Reflection With Floor Anchor Installation</a>
+        <div class="authors"><span class="me">Yuto Shibata</span>, Matthew Ishige, Hiroaki Murakami, Yoshihiro Kawahara</div>
+        <div class="venue">SenSys 2025</div>
+        <div class="plinks">
+          <a href="https://dl.acm.org/doi/abs/10.1145/3715014.3724050">paper</a>
         </div>
       </div>
     </div>
 
-    <!-- ICASSP 2025 -->
-    <div class="pub-card">
-      <div class="pub-thumb">
+    <div class="paper">
+      <a class="thumb" href="https://yutoshibata07.github.io/Formula-SED/">
         <img src="images/icassp2025_sample.png" alt="Formula-SED">
-      </div>
-      <div class="pub-info">
-        <div class="pub-tags">
-          <span class="tag">ICASSP 2025 🇮🇳</span>
-        </div>
-        <div class="pub-title">Formula-Supervised Sound Event Detection: Pre-Training Without Real Data</div>
-        <div class="pub-authors">
-          <span class="me">Yuto Shibata</span>, Keitaro Tanaka, Yoshiaki Bando, Hirokatsu Kataoka, Yoshimitsu Aoki
-        </div>
-        <div class="pub-links">
-          <a href="https://yutoshibata07.github.io/Formula-SED/">Project</a>
-          <a href="https://ieeexplore.ieee.org/abstract/document/10888414">Paper</a>
+      </a>
+      <div class="meta">
+        <a class="title" href="https://yutoshibata07.github.io/Formula-SED/">Formula-Supervised Sound Event Detection: Pre-Training Without Real Data</a>
+        <div class="authors"><span class="me">Yuto Shibata</span>, Keitaro Tanaka, Yoshiaki Bando, Hirokatsu Kataoka, Yoshimitsu Aoki</div>
+        <div class="venue">ICASSP 2025</div>
+        <div class="plinks">
+          <a href="https://yutoshibata07.github.io/Formula-SED/">project</a> /
+          <a href="https://ieeexplore.ieee.org/abstract/document/10888414">paper</a> /
+          <a href="https://github.com/YutoShibata07/formula_sed">code</a>
         </div>
       </div>
     </div>
 
-    <!-- NeurIPS 2024 -->
-    <div class="pub-card">
-      <div class="pub-thumb">
+    <div class="paper">
+      <a class="thumb" href="https://arxiv.org/abs/2410.20102">
         <img src="images/neurips_overview.png" alt="Federated Learning">
-      </div>
-      <div class="pub-info">
-        <div class="pub-tags">
-          <span class="tag">NeurIPS 2024 Workshop 🇨🇦</span>
-        </div>
-        <div class="pub-title">Anatomical Three-Dimensional Style Transfer Enabling Efficient Federated Learning with Extremely Low Communication Costs</div>
-        <div class="pub-authors">
-          <span class="me">Yuto Shibata</span>, Yasunori Kudo, Yohei Sugawara
-        </div>
-        <div class="pub-links">
+      </a>
+      <div class="meta">
+        <a class="title" href="https://arxiv.org/abs/2410.20102">Anatomical Three-Dimensional Style Transfer Enabling Efficient Federated Learning with Extremely Low Communication Costs</a>
+        <div class="authors"><span class="me">Yuto Shibata</span>, Yasunori Kudo, Yohei Sugawara</div>
+        <div class="venue">NeurIPS 2024 Workshop</div>
+        <div class="plinks">
           <a href="https://arxiv.org/abs/2410.20102">arXiv</a>
         </div>
       </div>
     </div>
 
-    <!-- BMVC 2024 -->
-    <div class="pub-card">
-      <div class="pub-thumb">
+    <div class="paper">
+      <a class="thumb" href="https://arxiv.org/abs/2411.07165">
         <img src="images/oumi_bmvc2024.png" alt="Acoustic Pose">
-      </div>
-      <div class="pub-info">
-        <div class="pub-tags">
-          <span class="tag">BMVC 2024 🇬🇧</span>
-        </div>
-        <div class="pub-title">Acoustic-based 3D Human Pose Estimation Robust to Human Position</div>
-        <div class="pub-authors">
-          Yusuke Oumi, <span class="me">Yuto Shibata</span>, Go Irie, Akisato Kimura, Yoshimitsu Aoki, Mariko Isogawa
-        </div>
-        <div class="pub-links">
+      </a>
+      <div class="meta">
+        <a class="title" href="https://arxiv.org/abs/2411.07165">Acoustic-based 3D Human Pose Estimation Robust to Human Position</a>
+        <div class="authors">Yusuke Oumi, <span class="me">Yuto Shibata</span>, Go Irie, Akisato Kimura, Yoshimitsu Aoki, Mariko Isogawa</div>
+        <div class="venue">BMVC 2024</div>
+        <div class="plinks">
           <a href="https://arxiv.org/abs/2411.07165">arXiv</a>
         </div>
       </div>
     </div>
 
-    <!-- CVPR 2023 -->
-    <div class="pub-card featured">
-      <div class="pub-thumb">
+    <div class="paper highlight">
+      <a class="thumb" href="https://yutoshibata07.github.io/AcousticPose-projectpage/">
         <img src="images/sound2pose_teaser.png" alt="Sound2Pose">
-      </div>
-      <div class="pub-info">
-        <div class="pub-tags">
-          <span class="tag top">CVPR 2023 🇨🇦</span>
-        </div>
-        <div class="pub-title">Listening Human Behavior: 3D Human Pose Estimation With Acoustic Signals</div>
-        <div class="pub-authors">
-          <span class="me">Yuto Shibata</span>, Yutaka Kawashima, Mariko Isogawa, Go Irie, Akisato Kimura, Yoshimitsu Aoki
-        </div>
-        <div class="pub-links">
-          <a href="https://yutoshibata07.github.io/AcousticPose-projectpage/">Project</a>
-          <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Shibata_Listening_Human_Behavior_3D_Human_Pose_Estimation_With_Acoustic_Signals_CVPR_2023_paper.pdf">Paper</a>
-          <a href="https://github.com/YutoShibata07/AcousticPose_Public">Code</a>
-          <a href="https://yutoshibata07.github.io/AcousticPose-projectpage/#dataset">Dataset</a>
+      </a>
+      <div class="meta">
+        <a class="title" href="https://yutoshibata07.github.io/AcousticPose-projectpage/">Listening Human Behavior: 3D Human Pose Estimation With Acoustic Signals</a>
+        <div class="authors"><span class="me">Yuto Shibata</span>, Yutaka Kawashima, Mariko Isogawa, Go Irie, Akisato Kimura, Yoshimitsu Aoki</div>
+        <div class="venue">CVPR 2023</div>
+        <div class="plinks">
+          <a href="https://yutoshibata07.github.io/AcousticPose-projectpage/">project</a> /
+          <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Shibata_Listening_Human_Behavior_3D_Human_Pose_Estimation_With_Acoustic_Signals_CVPR_2023_paper.pdf">paper</a> /
+          <a href="https://github.com/YutoShibata07/AcousticPose_Public">code</a> /
+          <a href="https://yutoshibata07.github.io/AcousticPose-projectpage/#dataset">dataset</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== Awards ===== -->
-  <section class="section">
-    <h2 class="section-title">🏆 Awards</h2>
-    <div class="talk-item">
-      <div class="talk-date">Jul 2025</div>
-      <div class="talk-desc">
-        <strong>MIRU Excellent Paper Award</strong> at MIRU 2025 (The 28th Meeting on Image Recognition and Understanding)<br>
-        <span style="color: var(--color-text-secondary); font-size: 13.5px;">Ranked 2nd out of 726 presentations. Paper: "Universal Human Pose Representation for Multi-Modal Active Sensing"</span>
+  <section>
+    <h2>Awards</h2>
+
+    <div class="entry">
+      <div class="date">Jul 2025</div>
+      <div>
+        MIRU Excellent Paper Award, MIRU 2025
+        <span class="note">2nd out of 726 presentations. "Universal Human Pose Representation for Multi-Modal Active Sensing"</span>
       </div>
     </div>
-    <div class="talk-item">
-      <div class="talk-date">Aug 2024</div>
-      <div class="talk-desc">
-        <strong>MIRU Interactive Presentation Award</strong> at MIRU 2024 (The 27th Meeting on Image Recognition and Understanding)<br>
-        <span style="color: var(--color-text-secondary); font-size: 13.5px;">Awarded to the author of a paper with an excellent interactive presentation.</span>
-      </div>
+
+    <div class="entry">
+      <div class="date">Aug 2024</div>
+      <div>MIRU Interactive Presentation Award, MIRU 2024</div>
     </div>
-    <div class="talk-item">
-      <div class="talk-date">Aug 2024</div>
-      <div class="talk-desc">
-        <strong>MIRU Student Encouragement Award</strong> at MIRU 2024 (The 27th Meeting on Image Recognition and Understanding)<br>
-        <span style="color: var(--color-text-secondary); font-size: 13.5px;">Awarded to presenters of outstanding oral research presentations by student first authors.</span>
-      </div>
+
+    <div class="entry">
+      <div class="date">Aug 2024</div>
+      <div>MIRU Student Encouragement Award, MIRU 2024</div>
     </div>
-    <div class="talk-item">
-      <div class="talk-date">Jul 2023</div>
-      <div class="talk-desc">
-        <strong>IPSJ Yamashita SIG Research Award</strong><br>
-        <span style="color: var(--color-text-secondary); font-size: 13.5px;">Awarded to presenters of particularly outstanding papers from workshops and symposia.</span>
-      </div>
+
+    <div class="entry">
+      <div class="date">Jul 2023</div>
+      <div>IPSJ Yamashita SIG Research Award</div>
     </div>
-    <div class="talk-item">
-      <div class="talk-date">Jul 2022</div>
-      <div class="talk-desc">
-        <strong>Frontier Award</strong> at MIRU 2022 (The 25th Meeting on Image Recognition and Understanding)<br>
-        <span style="color: var(--color-text-secondary); font-size: 13.5px;">Awarded to authors of pioneering papers with outstanding presentations. Paper: "音響信号を用いた人物の3次元姿勢推定"</span>
+
+    <div class="entry">
+      <div class="date">Jul 2022</div>
+      <div>
+        MIRU Frontier Award, MIRU 2022
+        <span class="note">"音響信号を用いた人物の3次元姿勢推定"</span>
       </div>
     </div>
   </section>
 
-  <!-- ===== Invited Talks ===== -->
-  <section class="section">
-    <h2 class="section-title">🎤 Invited Talks</h2>
-    <div class="talk-item">
-      <div class="talk-date">Jul 2023</div>
-      <div class="talk-desc">
-        Invited talk at <a href="https://cvim.ipsj.or.jp/MIRU2023/">MIRU 2023</a> &mdash; "Listening Human Behavior: 3D Human Pose Estimation With Acoustic Signals"
+  <section>
+    <h2>Talks</h2>
+
+    <div class="entry">
+      <div class="date">Jul 2023</div>
+      <div>
+        Invited talk, <a href="https://cvim.ipsj.or.jp/MIRU2023/">MIRU 2023</a>
+        <span class="note">"Listening Human Behavior: 3D Human Pose Estimation With Acoustic Signals"</span>
       </div>
     </div>
   </section>
 
-  <!-- ===== Footer ===== -->
   <footer>
-    <p>Template credits: <a href="https://unnat.github.io/">Unnat</a>, <a href="https://jonbarron.info/">Jon</a></p>
+    Based on templates by <a href="https://jonbarron.info/">Jon Barron</a> and <a href="https://unnat.github.io/">Unnat Jain</a>.
   </footer>
 
 </div>
