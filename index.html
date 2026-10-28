@@ -92,17 +92,100 @@
 
     .intro p { margin: 0 0 12px; }
 
+    .intro p.job-market {
+      margin: 16px 0;
+      padding: 8px 12px;
+      border-left: 3px solid #d9b44a;
+      border-radius: 0 4px 4px 0;
+      background: var(--highlight);
+    }
+
     .contact {
       margin-top: 18px !important;
       color: var(--faint);
     }
 
-    .portrait {
+    /* Photo stack: front card plus two tilted cards peeking out on each side */
+    .photos {
       flex: none;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
+      width: 270px;
+      margin-top: 4px;
+    }
+
+    .stack {
+      position: relative;
+      height: 232px;
+    }
+
+    .card {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      width: 156px;
+      height: 208px;
+      margin-left: -78px;
+      padding: 0;
+      border: 5px solid #fff;
+      border-radius: 8px;
+      background: #f4f3ef;
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 6px 18px rgba(0, 0, 0, 0.14);
+      cursor: pointer;
+      transition: transform 0.5s cubic-bezier(0.22, 0.8, 0.3, 1), opacity 0.5s, filter 0.5s;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
+      display: block;
+      pointer-events: none;
+    }
+
+    .card.is-center { z-index: 3; cursor: default; transform: none; }
+    .card.is-left   { z-index: 2; transform: translateX(-66px) translateY(10px) rotate(-10deg) scale(0.84); filter: brightness(0.92); }
+    .card.is-right  { z-index: 2; transform: translateX(66px) translateY(10px) rotate(10deg) scale(0.84); filter: brightness(0.92); }
+    .card.is-left:hover  { transform: translateX(-74px) translateY(6px) rotate(-12deg) scale(0.86); filter: none; }
+    .card.is-right:hover { transform: translateX(74px) translateY(6px) rotate(12deg) scale(0.86); filter: none; }
+    .card:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+    .photo-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .photo-nav button {
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      border: 1px solid var(--rule);
+      border-radius: 50%;
+      background: #fff;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .photo-nav button:hover { color: var(--ink); border-color: var(--faint); }
+
+    .dots { display: flex; gap: 6px; margin: 0 8px; }
+
+    .dots i {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--rule);
+      transition: background 0.3s;
+    }
+
+    .dots i.on { background: var(--faint); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .card { transition: none; }
     }
 
     /* Sections */
@@ -219,7 +302,7 @@
     @media (max-width: 680px) {
       .page { padding-top: 36px; }
       .intro { flex-direction: column-reverse; gap: 20px; }
-      .portrait { width: 132px; height: 132px; }
+      .photos { align-self: center; }
       .paper { flex-direction: column; align-items: flex-start; gap: 12px; }
       .thumb { width: 100%; }
       .entry { flex-direction: column; gap: 0; }
@@ -233,13 +316,15 @@
   <header class="intro">
     <div class="intro-text">
       <h1>Yuto Shibata <span class="jp">柴田 優斗</span></h1>
-      <p class="role">PhD student at Keio University</p>
+      <p class="role">Final-year PhD student at Keio University</p>
 
-      <p>I am a PhD student in the <a href="https://aoki-medialab.jp/home-en/">Aoki Lab</a> at <a href="https://www.keio.ac.jp/en/">Keio University</a>, advised by <a href="https://scholar.google.com.au/citations?user=fd_IY8AAAAAJ&hl=ja">Prof. Yoshimitsu Aoki</a> and <a href="https://scholar.google.com/citations?user=SQdd110AAAAJ&hl=ja">Dr. Mariko Isogawa</a>.</p>
+      <p>I am a final-year PhD student in the <a href="https://aoki-medialab.jp/home-en/">Aoki Lab</a> at <a href="https://www.keio.ac.jp/en/">Keio University</a>, advised by <a href="https://scholar.google.com.au/citations?user=fd_IY8AAAAAJ&hl=ja">Prof. Yoshimitsu Aoki</a> and <a href="https://scholar.google.com/citations?user=SQdd110AAAAJ&hl=ja">Dr. Mariko Isogawa</a>.</p>
 
-      <p>From June 2025 to June 2026, I was a visiting researcher at <a href="https://www.cs.cmu.edu/">Carnegie Mellon University</a> with <a href="https://www.cs.cmu.edu/~katef/">Prof. Katerina Fragkiadaki</a>, working on physics-based control of humans and humanoids, specifically <a href="#assistmimic">human&ndash;human</a> and <a href="#corl2026">human&ndash;humanoid interaction</a>.</p>
+      <p>From June 2025 to June 2026, I was a visiting researcher at <a href="https://www.cs.cmu.edu/">Carnegie Mellon University</a> with <a href="https://www.cs.cmu.edu/~katef/">Prof. Katerina Fragkiadaki</a>, working on physics-based control of humans and humanoids, specifically <a href="#assistmimic">human&ndash;human</a> (CVPR) and <a href="#corl2026">human&ndash;humanoid interaction</a> (CoRL).</p>
 
       <p>More broadly, I work on computer vision, human motion, robotics, and sensing people with sound and wireless signals.</p>
+
+      <p class="job-market"><strong>I am on the job market</strong> for research scientist/engineer and postdoc positions starting Fall 2027. Feel free to <a href="mailto:yuto19990715@gmail.com">reach out</a>.</p>
 
       <p class="contact">
         <a href="yutoshibata_cv_2026.html">CV</a> &nbsp;/&nbsp;
@@ -250,7 +335,18 @@
         <a href="https://www.linkedin.com/in/yuto-shibata-a60976181/?locale=en_US">LinkedIn</a>
       </p>
     </div>
-    <img class="portrait" src="images/face-zoom.jpg" alt="Yuto Shibata">
+    <div class="photos">
+      <div class="stack">
+        <button class="card" type="button" data-caption="Yuto Shibata"><img src="images/face-zoom.jpg" alt="Yuto Shibata"></button>
+        <button class="card" type="button" data-caption="With the Unitree G1 at CMU"><img src="images/cmu-humanoid.jpg" alt="Yuto Shibata holding the hand of a Unitree G1 humanoid at CMU"></button>
+        <button class="card" type="button" data-caption="Giving a talk"><img src="images/icip-oral.jpg" alt="Yuto Shibata giving a talk"></button>
+      </div>
+      <div class="photo-nav">
+        <button type="button" class="prev" aria-label="Previous photo">&#8249;</button>
+        <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <button type="button" class="next" aria-label="Next photo">&#8250;</button>
+      </div>
+    </div>
   </header>
 
   <section>
@@ -474,6 +570,41 @@
   </footer>
 
 </div>
+
+<script>
+  (function () {
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.photos .card'));
+    var dots = document.querySelectorAll('.photos .dots i');
+    var n = cards.length;
+    var current = 0;
+
+    function render() {
+      cards.forEach(function (card, i) {
+        var offset = (i - current + n) % n;
+        card.classList.toggle('is-center', offset === 0);
+        card.classList.toggle('is-right', offset === 1);
+        card.classList.toggle('is-left', offset === n - 1);
+        card.setAttribute('aria-label', offset === 0 ? card.dataset.caption : 'Show: ' + card.dataset.caption);
+        dots[i].classList.toggle('on', offset === 0);
+      });
+    }
+
+    function go(step) {
+      current = (current + step + n) % n;
+      render();
+    }
+
+    cards.forEach(function (card, i) {
+      card.addEventListener('click', function () {
+        if (i !== current) { current = i; render(); }
+      });
+    });
+    document.querySelector('.photos .prev').addEventListener('click', function () { go(-1); });
+    document.querySelector('.photos .next').addEventListener('click', function () { go(1); });
+
+    render();
+  })();
+</script>
 
 </body>
 </html>
