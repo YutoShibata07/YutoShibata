@@ -269,6 +269,13 @@
     }
 
     /* Awards and talks */
+    .news {
+      max-height: 190px;
+      overflow-y: auto;
+      padding-right: 8px;
+      overscroll-behavior: contain;
+    }
+
     .entry {
       display: flex;
       gap: 20px;
@@ -352,6 +359,7 @@
   <section>
     <h2>News</h2>
 
+    <div class="news">
     <div class="entry">
       <div class="date">Nov 2026</div>
       <div>I will join NVIDIA Research as an intern this winter.</div>
@@ -365,6 +373,22 @@
     <div class="entry">
       <div class="date">Aug 2026</div>
       <div>Gave a talk at the <strong>Max Planck Institute for Informatics (MPI-INF)</strong>, Saarbr&uuml;cken, on human&ndash;human interaction (<a href="#assistmimic">AssistMimic</a>, <a href="#corl2026">REACT</a>).</div>
+    </div>
+
+    <div class="entry">
+      <div class="date">Aug 2026</div>
+      <div>Our paper on <a href="#icpr2026">sign-to-speech prosody transfer</a> received the <strong>Best Scientific Paper Award</strong> at ICPR 2026.</div>
+    </div>
+
+    <div class="entry">
+      <div class="date">Jul 2026</div>
+      <div>Finished my one-year visit at <a href="https://www.cs.cmu.edu/">Carnegie Mellon University</a> with Prof. Katerina Fragkiadaki.</div>
+    </div>
+
+    <div class="entry">
+      <div class="date">Jun 2026</div>
+      <div>Presented <a href="#assistmimic">AssistMimic</a> at <strong>CVPR 2026</strong>.</div>
+    </div>
     </div>
   </section>
 
@@ -427,7 +451,7 @@
       </div>
     </div>
 
-    <div class="paper">
+    <div class="paper" id="icpr2026">
       <a class="thumb" href="https://arxiv.org/abs/2604.10413">
         <img src="images/manabe-icpr-fig1-cropped.png" alt="Sign-to-Speech Prosody Transfer">
       </a>
